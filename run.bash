@@ -1,5 +1,5 @@
-apt update -y
-apt upgrade -y
+apt update
+apt upgrade
 apt install ufw -y
 sudo iptables -A FORWARD -s 200.0.0.0/8 -j DROP
 sudo iptables -A FORWARD -s 102.0.0.0/8 -j DROP
