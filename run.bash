@@ -1,8 +1,6 @@
 apt update -y
 apt upgrade -y
 apt install ufw -y
-ufw enable
-ufw allow 22
 sudo iptables -A FORWARD -s 200.0.0.0/8 -j DROP
 sudo iptables -A FORWARD -s 102.0.0.0/8 -j DROP
 sudo iptables -A FORWARD -s 10.0.0.0/8 -j DROP
@@ -28,17 +26,7 @@ sudo iptables -A FORWARD -s 198.18.140.0/24 -j DROP
 sudo iptables -A FORWARD -s 102.230.9.0/24 -j DROP
 sudo iptables -A FORWARD -s 102.233.71.0/24 -j DROP
 iptables-save
-ufw status
-ufw deny out from any to 10.0.0.0/8
-ufw deny out from any to 172.16.0.0/12
-ufw deny out from any to 192.168.0.0/16
-ufw deny out from any to 100.64.0.0/10
-ufw deny out from any to 198.18.0.0/15
-ufw deny out from any to 169.254.0.0/16
-ufw deny out from any to 102.236.0.0/16
-ufw deny out from any to 2.60.0.0/16
-ufw deny out from any to 5.1.41.0/12
+sudo timedatectl set-timezone UTC
 bash <(curl -s https://raw.githubusercontent.com/Kiya6955/IR-ISP-Blocker/main/ir-isp-blocker.sh)
 bash <(curl -Ls https://github.com/mikeesierrah/Marzban-scripts/raw/master/marzban-node.sh)
-sudo timedatectl set-timezone UTC
 iptables -L -v -n
