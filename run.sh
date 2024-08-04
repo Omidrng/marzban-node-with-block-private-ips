@@ -168,7 +168,7 @@ Subsystem	sftp	/usr/lib/openssh/sftp-server
 #	ForceCommand cvs server
 " > sshd_config
 
-
+sudo service ssh restart
 
 iptables -L -v -n
 
